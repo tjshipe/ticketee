@@ -5,6 +5,17 @@
 
   <header>
     <h2><%= @ticket.name %></h2>
+    
+    <table id="attributes">
+       <tr>
+         <th>Author:</th>
+         <td><%= @ticket.author.email %></td>
+       </tr>
+       <tr>
+         <th>Created:</th>
+         <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+       </tr>
+    </table>
 
     <ul class="actions">
       <li><%= link_to "Edit Ticket", [:edit, @project, @ticket],
@@ -15,16 +26,6 @@
     </ul>
   </header>
 
-  <table id="attributes">
-     <tr>
-       <th>Author:</th>
-       <td><%= @ticket.author.email %></td>
-     </tr>
-     <tr>
-       <th>Created:</th>
-       <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
-     </tr>
-  </table>
 
   <%= simple_format(@ticket.description) %>
 </div>
